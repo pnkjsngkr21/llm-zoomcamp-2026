@@ -68,12 +68,7 @@ class LessonRAGBase:
         return response
 
     def rag(self, query):
-        print('Query: '+query, flush=True)
         search_results = self.search(query)
-        print('Search Result:')
-        print(search_results)
         prompt = self.build_prompt(query, search_results)
-        print('Prompt:')
-        print(prompt)
         answer = self.llm(prompt)
         return answer
